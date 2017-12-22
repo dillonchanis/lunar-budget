@@ -3,7 +3,7 @@
     <LunarNavbarHeader />
     <LunarNavbarNav />
     <div class="flex items-center justify-between flex-wrap p-6">
-      <div class="container">
+      <div class="container mx-auto">
         <transition name="slide" mode="out-in" appear>
           <router-view />
         </transition>

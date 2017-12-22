@@ -19,7 +19,6 @@ Vue.filter('truncate', function (text, length, clamp) {
 
   while (last > 0 && tcText[last] !== ' ' && tcText[last] !== clamp[0]) last -= 1
 
-  // Fix for case when text dont have any `space`
   last = last || length - clamp.length
 
   tcText = tcText.slice(0, last)
