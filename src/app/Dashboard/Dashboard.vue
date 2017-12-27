@@ -35,21 +35,7 @@
             Recent Transactions
           </h4>
 
-          <!-- <div v-for="transaction in recentTransactions" :key="transaction.id" class="group px-4 py-4 flex items-center hover:bg-indigo-darker">
-            <div class="shadow-md px-2 py-1 rounded-full mr-4"
-                 :class="[ transaction.expense ? 'bg-red-dark' : 'bg-green-dark' ]">
-              <FontAwesomeIcon class="text-white" :icon="getIcon(transaction.expense)" size="xs" />
-            </div>
-            <div class="w-3/4">
-              <div class="text-white mb-1">
-                {{ transaction.desc | truncate }}
-              </div>
-              <div class="text-indigo text-sm opacity-75">
-                ${{ transaction.amount }} @ {{ transaction.name }} - {{ transaction.date }}
-              </div>
-            </div>
-          </div> -->
-          <LunarTransactionList :transactions="recentTransactions" />
+          <LunarTransactionList :transactions="recentTransactions" :faIcons="faArrows" />
         </LunarCard>
       </LunarColumn>
 
@@ -80,7 +66,6 @@ import { faCalendarAlt, faCreditCard, faArrowUp, faArrowDown, faSuitcase } from 
 import { LunarRow, LunarColumn } from '@/app/components/Layout'
 import { LunarCard } from '@/app/components/Presentational'
 import ExpenseChart from '@/app/components/Charts/ExpenseChart.js'
-import DashboardList from './components/DashboardListItem'
 import { LunarAccountList, LunarTransactionList } from '@/app/components/Lists'
 
 export default {
@@ -121,11 +106,11 @@ export default {
     creditCardIcon () {
       return faCreditCard
     },
-    downArrowIcon () {
-      return faArrowDown
-    },
-    upArrowIcon () {
-      return faArrowUp
+    faArrows () {
+      return {
+        down: faArrowDown,
+        up: faArrowUp
+      }
     }
   },
 
