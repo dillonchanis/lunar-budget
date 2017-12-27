@@ -1,5 +1,5 @@
 <template functional>
-  <div :class="['px-' + props.gutter, props.size]">
+  <div :class="['px-' + props.gutter, props.size, 'my-4']">
     <slot></slot>
   </div>
 </template>

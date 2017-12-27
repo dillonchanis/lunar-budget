@@ -35,7 +35,7 @@
             Recent Transactions
           </h4>
 
-          <div v-for="transaction in recentTransactions" :key="transaction.id" class="group px-4 py-4 flex items-center hover:bg-indigo-darker">
+          <!-- <div v-for="transaction in recentTransactions" :key="transaction.id" class="group px-4 py-4 flex items-center hover:bg-indigo-darker">
             <div class="shadow-md px-2 py-1 rounded-full mr-4"
                  :class="[ transaction.expense ? 'bg-red-dark' : 'bg-green-dark' ]">
               <FontAwesomeIcon class="text-white" :icon="getIcon(transaction.expense)" size="xs" />
@@ -48,7 +48,8 @@
                 ${{ transaction.amount }} @ {{ transaction.name }} - {{ transaction.date }}
               </div>
             </div>
-          </div>
+          </div> -->
+          <LunarTransactionList :transactions="recentTransactions" />
         </LunarCard>
       </LunarColumn>
 
@@ -61,21 +62,11 @@
             Your Accounts
           </h4>
 
-          <div v-for="account in accounts" :key="account.id" class="group px-4 py-4 flex items-center hover:bg-indigo-darker">
-            <div class="w-3/4">
-              <div class="text-white mb-1">
-                {{ account.name }}
-              </div>
-              <div class="text-indigo text-sm opacity-75">
-                XXXX-XXXX-XXXX-{{ account.number }}
-              </div>
-            </div>
-            <div class="w-1/4 text-white text-lg">
-                ${{ account.balance }}
-            </div>
-          </div>
+          <LunarAccountList :accounts="accounts" />
         </LunarCard>
       </LunarColumn>
+
+
     </LunarRow>
   </div>
 </template>
@@ -86,10 +77,11 @@ import { mapGetters } from 'vuex'
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import { faCalendarAlt, faCreditCard, faArrowUp, faArrowDown, faSuitcase } from '@fortawesome/fontawesome-free-solid'
 
-import LunarRow from '@/app/components/Row'
-import LunarColumn from '@/app/components/Column'
-import LunarCard from '@/app/components/Card'
+import { LunarRow, LunarColumn } from '@/app/components/Layout'
+import { LunarCard } from '@/app/components/Presentational'
 import ExpenseChart from '@/app/components/Charts/ExpenseChart.js'
+import DashboardList from './components/DashboardListItem'
+import { LunarAccountList, LunarTransactionList } from '@/app/components/Lists'
 
 export default {
   name: 'dashboard',
@@ -99,7 +91,9 @@ export default {
     LunarRow,
     LunarColumn,
     LunarCard,
-    ExpenseChart
+    ExpenseChart,
+    LunarAccountList,
+    LunarTransactionList
   },
 
   data () {
