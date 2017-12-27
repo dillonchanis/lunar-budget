@@ -3,7 +3,7 @@
     Accounts.
   </div>
   <div v-else>
-    <router-link to="/accounts/add" class="no-underline">
+    <router-link :to="{ name: 'account-form' }" class="no-underline">
       <LunarBadgeAlert>
         <span slot="badge">Hey!</span>
         You have no accounts. Let's set you up now.

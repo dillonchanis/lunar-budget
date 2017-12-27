@@ -11,12 +11,13 @@
 
         <div class="py-2 px-6">
           <LunarRow>
-            <LunarColumn size="w-1/4">
-              <span class="text-indigo-lightest text-lg">Account</span>
+            <LunarColumn size="w-1/3">
+              <div class="text-indigo-lightest text-lg">Account</div>
+              <div class="text-indigo-light text-sm mt-2">Basic Account Information</div>
             </LunarColumn>
             <LunarColumn size="flex-grow">
               <div class="mb-8">
-                <label for="name" class="block mb-2 text-indigo-lightest text-sm">Name</label>
+                <label for="name" class="block mb-2 text-indigo-lighter text-sm">Name</label>
                 <input name="name"
                        type="text"
                        v-model="form.name"
@@ -26,7 +27,7 @@
                 </div>
               </div>
               <div class="mb-8">
-                <label for="identifier" class="block mb-2 text-indigo-lightest text-sm">Identifier</label>
+                <label for="identifier" class="block mb-2 text-indigo-lighter text-sm">Identifier</label>
                 <input name="identifier"
                        type="text"
                        v-model.number="form.identifier"
@@ -36,7 +37,7 @@
                 </div>
               </div>
               <div class="mb-8">
-                <label for="balance" class="block mb-2 text-indigo-lightest text-sm">Balance</label>
+                <label for="balance" class="block mb-2 text-indigo-lighter text-sm">Balance</label>
                 <input name="balance"
                        type="text"
                        v-model.number="form.balance"
@@ -48,7 +49,7 @@
             </LunarColumn>
           </LunarRow>
           <div class="text-right px-4 pb-2">
-            <router-link to="/accounts">
+            <router-link :to="{ name: 'accounts' }">
               <button class="text-indigo text-sm mr-4">
                 Cancel
               </button>
@@ -96,6 +97,10 @@
     },
 
     methods: {
+      clear () {
+        this.form = {}
+        this.errors = {}
+      },
       submit () {
         // validate
         // push to vuex accounts array
