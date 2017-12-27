@@ -23,7 +23,7 @@ export default {
 
     return (
       <div class="group px-4 py-4 flex items-center hover:bg-indigo-darker">
-        <div class="shadow-md px-2 py-1 rounded-full mr-4 bg-indigo-darkest">
+        <div class="shadow-md px-2 pb-1 rounded-full mr-4 bg-indigo-darkest">
           <FontAwesomeIcon class="text-white"
                            icon={ transaction.expense ? faIcons.down : faIcons.up }
                            size="xs" />

@@ -19,7 +19,7 @@
           </h4>
 
           <div class="py-2 px-2">
-            <ExpenseChart :height="150" :chart-data="chartData" />
+            <ExpenseChart :height="350" :width="1180" :chart-data="chartData" />
           </div>
         </LunarCard>
       </LunarColumn>
@@ -51,8 +51,6 @@
           <LunarAccountList :accounts="accounts" />
         </LunarCard>
       </LunarColumn>
-
-
     </LunarRow>
   </div>
 </template>
@@ -121,7 +119,8 @@ export default {
         datasets: [
           {
             label: 'Recent Expenses',
-            backgroundColor: '#6574cd',
+            backgroundColor: 'transparent',
+            borderColor: '#6574cd',
             data: this.getTransactions.map(transaction => transaction.amount)
           }
         ]
