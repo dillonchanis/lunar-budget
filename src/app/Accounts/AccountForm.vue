@@ -1,27 +1,19 @@
 <template>
   <LunarRow>
     <LunarColumn size="w-full">
-      <LunarCard>
-        <h4 class="text-indigo-lightest font-normal py-4" slot="header">
-          <div class="bg-indigo shadow-lg py-2 px-2 rounded-full inline-block mr-2">
-            <FontAwesomeIcon style="width: 1.2em" :icon="faPlus" />
-          </div>
-          Add Account
-        </h4>
-
         <div class="py-2 px-6">
           <LunarRow>
-            <LunarColumn size="w-1/3">
+            <LunarColumn size="w-full">
               <div class="text-indigo-lightest text-lg">Account</div>
               <div class="text-indigo-light text-sm mt-2">Basic Account Information</div>
             </LunarColumn>
-            <LunarColumn size="flex-grow">
+            <LunarColumn size="w-full">
               <div class="mb-8">
                 <label for="name" class="block mb-2 text-indigo-lighter text-sm">Name</label>
                 <input name="name"
                        type="text"
                        v-model="form.name"
-                       class="rounded py-1 px-1 bg-indigo-darkest text-indigo-lightest border border-indigo w-1/2" />
+                       class="rounded py-1 px-1 bg-indigo-darkest text-indigo-lightest border border-indigo w-full" />
                 <div class="mt-2 text-red-light italic text-sm" v-if="errors.name">
                   Please enter an account name.
                 </div>
@@ -49,19 +41,16 @@
             </LunarColumn>
           </LunarRow>
           <div class="text-right px-4 pb-2">
-            <router-link :to="{ name: 'accounts' }">
-              <button class="text-indigo text-sm mr-4">
-                Cancel
-              </button>
-            </router-link>
+            <button class="text-indigo text-sm mr-4">
+              Cancel
+            </button>
 
-            <button class="bg-indigo hover:bg-indigo-darker text-sm text-white rounded py-2 px-4"
+            <button class="btn-primary"
                     @click.prevent="submit">
               Submit
             </button>
           </div>
         </div>
-      </LunarCard>
     </LunarColumn>
   </LunarRow>
 </template>
