@@ -25,6 +25,11 @@ export default {
 
     [types.TOGGLE] (state) {
       state.open = !state.open
+    },
+
+    [types.RESET] (state) {
+      state.open = !state.open
+      state.component = null
     }
   },
 
@@ -35,6 +40,10 @@ export default {
 
     toggle ({ commit }) {
       commit(types.TOGGLE)
+    },
+
+    reset ({ commit }) {
+      commit(types.RESET)
     }
   }
 }

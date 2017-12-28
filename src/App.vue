@@ -1,22 +1,27 @@
 <template>
   <div id="app" class="font-sans">
+    <div v-if="drawerOpen" class="absolute h-screen w-screen z-10 bg-indigo-darker opacity-50" @click.stop="close"></div>
+
     <LunarNavbarHeader />
     <LunarNavbarNav />
+
     <LunarDrawer :isOpen="drawerOpen">
       <component :is="drawerComponent" />
     </LunarDrawer>
-    <div class="flex items-center justify-between flex-wrap p-6">
+
+    <main class="flex items-center justify-between flex-wrap p-6">
       <div class="container mx-auto">
         <transition name="slide" mode="out-in" appear>
           <router-view />
         </transition>
       </div>
-    </div>
+    </main>
+
   </div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 import NavbarHeader from './app/Navigation/NavbarHeader'
 import NavbarNav from './app/Navigation/NavbarNav'
@@ -35,6 +40,12 @@ export default {
     ...mapGetters({
       drawerComponent: 'drawer/getComponent',
       drawerOpen: 'drawer/isOpen'
+    })
+  },
+
+  methods: {
+    ...mapActions({
+      close: 'drawer/reset'
     })
   }
 }

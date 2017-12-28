@@ -105,6 +105,11 @@ var colors = {
   'blue-lightest': '#eff8ff',
 
   'paua': '#2D2B49',
+  'slate-blue': '#655BE4',
+  'dark-orchid': '#9444DA',
+  'medium-slate-blue': '#7F56DF',
+  'scampi': '#67599B',
+  'venus': '#94868C',
 
   'indigo-darkest': '#191e38',
   'indigo-darker': '#2f365f',
