@@ -52,7 +52,7 @@
             </LunarColumn>
           </LunarRow>
           <div class="text-right px-4 pb-2">
-            <button type="button" class="text-indigo text-sm mr-4">
+            <button type="button" class="text-indigo text-sm mr-4" @click="closeDrawer">
               Cancel
             </button>
 
