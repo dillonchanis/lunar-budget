@@ -28,7 +28,7 @@ export default {
     },
 
     [types.RESET] (state) {
-      state.open = !state.open
+      state.open = false
       state.component = null
     }
   },
