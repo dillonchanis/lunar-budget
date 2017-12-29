@@ -2,7 +2,7 @@
   <div>
     <LunarRow>
       <LunarColumn size="w-full">
-        <h2 class="text-white text-2xl font-hairline mb-2">
+        <h2 class="text-indigo-lightest text-2xl font-hairline mb-2">
           Welcome, {{ user.name }}!
         </h2>
       </LunarColumn>
