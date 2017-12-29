@@ -1,29 +1,60 @@
 <template>
-  <div v-if="accounts.length">
-    Accounts.
-  </div>
-  <div v-else>
-    <a class="no-underline" @click.prevent="showForm" href="#">
-    <LunarBadgeAlert>
-      <span slot="badge">Hey!</span>
-      You have no accounts. Let's set you up now.
-    </LunarBadgeAlert>
-    </a>
+  <div>
+    <LunarRow>
+      <LunarColumn size="w-full">
+        <div class="flex items-center">
+          <h2 class="text-indigo-lightest text-2xl font-hairline">
+            Accounts
+          </h2>
+
+          <button class="ml-4 btn-primary py-2 px-2 text-xs" @click="showForm">
+            <FontAwesomeIcon :icon="faPlus" size="xs" /> <span class="inline-block ml-1">Add Account</span>
+          </button>
+        </div>
+      </LunarColumn>
+    </LunarRow>
+
+    <LunarRow v-if="accounts.length">
+      <LunarColumn size="w-full">
+        <LunarCard>
+          <h4 class="text-indigo-lightest font-normal py-4" slot="header">
+            <div class="bg-indigo shadow-lg py-2 px-2 rounded-full inline-block mr-2">
+              <FontAwesomeIcon style="width: 1.2em" :icon="faSuitcase" />
+            </div>
+            Your Accounts
+          </h4>
+
+          <LunarAccountList :accounts="accounts" />
+        </LunarCard>
+      </LunarColumn>
+    </LunarRow>
+    <LunarRow v-else>
+      <p class="text-indigo-lightest">
+        It looks like you have no accounts!
+      </p>
+    </LunarRow>
   </div>
 </template>
 
 <script>
+  import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
+  import { faPlus, faSuitcase } from '@fortawesome/fontawesome-free-solid'
   import { mapActions, mapGetters } from 'vuex'
-  import { LunarAlert, LunarBadgeAlert } from '@/app/components/Presentational'
 
   import LunarAccountForm from './AccountForm'
+  import { LunarAccountList } from '@/app/components/Lists'
+  import { LunarRow, LunarColumn } from '@/app/components/Layout'
+  import { LunarCard } from '@/app/components/Presentational'
 
   export default {
     name: 'lunar-accounts',
 
     components: {
-      LunarAlert,
-      LunarBadgeAlert
+      FontAwesomeIcon,
+      LunarAccountList,
+      LunarRow,
+      LunarColumn,
+      LunarCard
     },
 
     data () {
@@ -35,7 +66,15 @@
     computed: {
       ...mapGetters({
         getAccounts: 'accounts/getAccounts'
-      })
+      }),
+
+      faPlus () {
+        return faPlus
+      },
+
+      faSuitcase () {
+        return faSuitcase
+      }
     },
 
     methods: {
@@ -47,6 +86,10 @@
         this.toggleDrawer()
         this.setDrawer(LunarAccountForm)
       }
+    },
+
+    mounted () {
+      this.accounts = this.getAccounts
     }
   }
 </script>

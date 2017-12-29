@@ -12,3 +12,13 @@ export const truncate = (text, length = 30, clamp = '...') => {
 
   return tcText + clamp
 }
+
+const getErrors = ({ errorMsg = `This field is required.` }) => errorMsg
+
+const validate = (fn, data) => {
+  return fn(data)
+    ? null
+    : getErrors(data)
+}
+
+export const simpleValidate = rule => field => validate(rule, field)
