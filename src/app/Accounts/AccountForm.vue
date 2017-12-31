@@ -11,7 +11,7 @@
             </LunarColumn>
             <LunarColumn size="w-full">
               <div class="mb-8">
-                <label for="name" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">Account Name :</label>
+                <label for="name" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">* Account Name :</label>
                 <input name="name"
                        type="text"
                        v-model="form.name"
@@ -21,7 +21,7 @@
                 </div>
               </div>
               <div class="mb-8">
-                <label for="number" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">4 Digit Number/ID :</label>
+                <label for="number" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">* 4 Digit Number / ID :</label>
                 <input name="number"
                        type="text"
                        v-model.number="form.number"
@@ -31,7 +31,7 @@
                 </div>
               </div>
               <div class="mb-8">
-                <label for="balance" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">Current Balance :</label>
+                <label for="balance" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">* Current Balance :</label>
                 <input name="balance"
                        type="text"
                        v-model.number="form.balance"

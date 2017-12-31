@@ -29,7 +29,7 @@ export default {
                            size="xs" />
         </div>
         <div class="w-3/4">
-          <div class="text-white mb-1">
+          <div class="text-white mb-2">
             { truncate(transaction.desc) }
           </div>
           <div class="text-indigo text-sm opacity-75">

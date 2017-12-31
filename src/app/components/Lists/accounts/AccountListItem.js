@@ -11,7 +11,7 @@ export default {
   render: (h, { props }) => (
     <div class="group px-4 py-4 flex items-center hover:bg-indigo-darker">
       <div class="w-3/4">
-        <div class="text-white mb-1">
+        <div class="text-white mb-2">
           { props.account.name }
         </div>
         <div class="text-indigo text-sm opacity-75">

@@ -9,8 +9,8 @@
       <component :is="drawerComponent" />
     </LunarDrawer>
 
-    <main class="flex items-center justify-between flex-wrap p-6">
-      <div class="container mx-auto">
+    <main class="container mx-auto">
+      <div class="px-4 py-6">
         <transition name="slide" mode="out-in" appear>
           <router-view />
         </transition>
