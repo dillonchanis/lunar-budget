@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+
+:focus {
+  outline-color: config('colors.indigo')
+}
+
+@responsive {
+  .bg-gradient-indigo-lighter {
+    background-image: linear-gradient(to left, config('colors.indigo-lighter'), config('colors.indigo'));
+  }
+
+  .bg-gradient-indigo {
+    background-image: linear-gradient(to right, config('colors.indigo'), config('colors.indigo-darker'));
+  }
+
+  .bg-gradient-indigo-darker {
+    background-image: linear-gradient(to right, config('colors.indigo-darker'), config('colors.indigo-darkest'));
+  }
+
+  .bg-gradient-indigo-bottom {
+    background-image: linear-gradient(to bottom, config('colors.indigo'), #7c65cd);
+  }
+
+  .bg-gradient-indigo-bottom-darker {
+    background-image: linear-gradient(to bottom, config('colors.indigo'), #8472c5);
+  }
+}

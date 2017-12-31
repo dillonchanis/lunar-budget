@@ -1,69 +1,7 @@
 @tailwind preflight;
 
-.btn-primary {
-  @apply .bg-indigo .text-sm .text-white .rounded .py-2 .px-4 .shadow-md;
-}
-
-.btn-primary:hover {
-  @apply .bg-indigo-darker
-}
-
-$drawerWidth: 500px;
-
-.slide-enter-active {
-  animation: slide-in 500ms ease-out;
-}
-
-.slide-leave-active {
-  animation: slide-out 500ms ease-out;
-}
-
-@keyframes slide-in {
-    from {
-      transform: translateX(30px);
-      opacity: 0
-    }
-    to {
-      transform: translateX(0px);
-      opacity: 1;
-    }
-}
-
-@keyframes slide-out {
-    from {
-      transform: traslateX(0px);
-      opacity: 1;
-    }
-    to {
-      transform: translateX(30px);
-      opacity: 0;
-    }
-}
-
-.lunar-drawer-enter-active {
-  animation: drawer-in 250ms ease-out;
-}
-
-.lunar-drawer-leave-active {
-  animation: drawer-out 250ms ease-out;
-}
-
-@keyframes drawer-in {
-    from {
-      transform: translateX($drawerWidth);
-    }
-    to {
-      transform: translateX(0);
-    }
-}
-
-@keyframes drawer-out {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX($drawerWidth);
-    }
-}
+@import './assets/scss/global';
+@import './assets/scss/buttons';
+@import './assets/scss/transitions';
 
 @tailwind utilities;

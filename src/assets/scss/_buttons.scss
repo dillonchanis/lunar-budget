@@ -1,0 +1,7 @@
+.btn-primary {
+  @apply .bg-gradient-indigo-bottom .text-sm .text-white .rounded .py-2 .px-4 .shadow-md;
+}
+
+.btn-primary:hover {
+  @apply .bg-gradient-indigo-bottom-darker
+}
