@@ -1,0 +1,7 @@
+.card-header {
+  @apply .text-indigo-lightest .font-normal .py-4;
+}
+
+.card-header-icon {
+  @apply .bg-gradient-indigo-bottom .shadow-lg .py-2 .px-2 .rounded-full .inline-block .mr-2;
+}
