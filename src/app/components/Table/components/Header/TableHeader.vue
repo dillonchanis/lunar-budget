@@ -1,22 +1,27 @@
 <template>
-  <header class="lunar-table__header">
-    <LunarTableFilter v-if="withFilter" :query="filter" @input="updateFilter" />
+  <header class="flex flex-row items-center justify-between h-8">
+    <LunarTableFilter v-if="withFilter"
+                      :query="filter"
+                      @input="updateFilter" />
 
     <div class="lunar-table__options">
-      <a class="options-link" href="#" @click.prevent="toggle">
-        cog
+      <a class="no-underline text-indigo-lightest" href="#" @click.prevent="toggle">
+        <FontAwesomeIcon :icon="faCog" />
       </a>
     </div>
   </header>
 </template>
 
 <script>
+  import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
+  import { faCog } from '@fortawesome/fontawesome-free-solid'
   import { LunarTableFilter } from '..'
 
   export default {
     name: 'lunar-table-header',
 
     components: {
+      FontAwesomeIcon,
       LunarTableFilter
     },
 
@@ -34,6 +39,12 @@
     data () {
       return {
         open: false
+      }
+    },
+
+    computed: {
+      faCog () {
+        return faCog
       }
     },
 

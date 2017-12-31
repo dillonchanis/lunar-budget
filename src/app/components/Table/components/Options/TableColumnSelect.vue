@@ -1,10 +1,10 @@
 <template>
-  <div class="column__select" v-if="settings.open">
-    <ul class="list list--inline">
-      <li class="list-item" v-for="column in columns" :key="column.key">
-        <label>
-          <input type="checkbox" v-model="column.active" />
-          {{ column.label }}
+  <div class="mt-4 mb-2" v-if="settings.open">
+    <ul class="block list-reset">
+      <li class="inline-flex items-center mr-4" v-for="column in columns" :key="column.key">
+        <label class="block text-indigo-lightest">
+          <input class="mr-1" type="checkbox" v-model="column.active" />
+          <span class="text-sm">{{ column.label }}</span>
         </label>
       </li>
     </ul>

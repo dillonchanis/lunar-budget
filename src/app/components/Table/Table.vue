@@ -1,25 +1,28 @@
 <template>
-  <div class="px-4 py-4">
+  <div class="bg-indigo-darkest shadow-md">
     <a href="#l-table-content" class="sr-only">Skip to Table's Content</a>
-    <LunarTableHeader
-      :with-filter="withFilter"
-      @input="updateFilter"
-      @toggle="toggleSettings" />
 
-    <LunarTableOptions
-      :columns="columns"
-      :settings="settings" />
+    <div class="p-4">
+      <LunarTableHeader
+        :with-filter="withFilter"
+        @input="updateFilter"
+        @toggle="toggleSettings" />
+
+      <LunarTableOptions
+        :columns="columns"
+        :settings="settings" />
+    </div>
 
     <figure class="w-full max-w-full overflow-auto" :style="{ 'max-height': maxHeight }">
       <table id="l-table-content"
              role="grid"
              tabindex="0"
-             class="w-full"
+             class="w-full border-collapse bg-indigo-darkest"
              :aria-colcount="columns.length"
              :aria-rowcount="rows.length">
 
-        <thead>
-          <tr class="lunar-table__row" role="row">
+        <thead class="bg-indigo-darker">
+          <tr class="h-8" role="row">
             <th class="lunar-table__checkbox-container" v-if="multiSelect">
               <label class="control control--checkbox">
                 <input class="lunar-table__checkbox"
@@ -32,7 +35,7 @@
             <th v-for="column in columns"
                 v-if="column.active"
                 :key="column.value"
-                class="lunar-table__head-item"
+                class="text-left text-indigo uppercase cursor-pointer tracking-wide text-sm px-4 py-4"
                 :class="{ 'head-item--active': sort.by === column.value }"
                 role="columnheader"
                 tabindex="0"
@@ -49,7 +52,7 @@
 
         <tbody v-if="rows.length" class="lunar-table__body">
           <template v-for="row in rows">
-            <tr class="lunar-table__row"
+            <tr class="hover:bg-paua"
                 role="row"
                 :key="row.id"
                 @click="selectRow(row)">
@@ -77,12 +80,12 @@
                 </slot>
               </template>
 
-              <td v-if="editable && row.id !== edit.row">
+              <td class="px-4" v-if="editable && row.id !== edit.row">
                 <a href="#" @click.prevent="editRow(row)">
                   edit
                 </a>
               </td>
-              <td v-else-if="editable">
+              <td class="px-4" v-else-if="editable">
                 <a href="#" @click.prevent="saveEdit">
                   save
                 </a>
@@ -335,3 +338,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.border-collapse {
+  border-collapse: collapse;
+}
+</style>

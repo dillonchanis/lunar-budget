@@ -1,13 +1,13 @@
 <template>
   <td v-if="editID === row.id && column.active && editable"
-      class="lunar-table__cell--editable lunar-table__cell"
+      class="lunar-table__cell--editable lunar-table__cell px-4"
       :colspan="colSpan">
     <input type="text"
            class="lunar-table__input"
            v-model="row[column.value]">
   </td>
   <td v-else-if="column.active"
-      class="lunar-table__cell"
+      class="text-indigo-lightest px-4 py-4"
       :colspan="colSpan"
       @dblclick="editRow(row)">
     {{ value(row, column.value) }}
