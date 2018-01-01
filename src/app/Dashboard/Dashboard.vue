@@ -11,15 +11,16 @@
     <LunarRow>
       <LunarColumn size="w-full">
         <LunarCard>
-          <h4 class="text-indigo-lightest font-normal py-4" slot="header">
-            <div class="bg-indigo shadow-lg py-2 px-2 rounded-full inline-block mr-2">
+          <h4 class="card-header" slot="header">
+            <div class="card-header-icon">
               <FontAwesomeIcon style="width: 1.2em" :icon="calendarIcon" />
             </div>
             Your Spending This Week
           </h4>
 
           <div class="py-2 px-2">
-            <ExpenseChart :height="350" :width="1180" :chart-data="chartData" />
+            <ExpenseChart :styles="{ position: 'relative', height: '350px' }"
+                          :chart-data="chartData" />
           </div>
         </LunarCard>
       </LunarColumn>
@@ -28,9 +29,9 @@
     <LunarRow>
       <LunarColumn size="w-full sm:w-1/2">
         <LunarCard>
-          <h4 class="text-indigo-lightest font-normal py-4" slot="header">
-            <div class="bg-indigo shadow-lg py-2 px-2 rounded-full inline-block mr-2">
-              <FontAwesomeIcon :icon="creditCardIcon" />
+          <h4 class="card-header" slot="header">
+            <div class="card-header-icon">
+              <FontAwesomeIcon style="width: 1.2em" :icon="creditCardIcon" />
             </div>
             Recent Transactions
           </h4>
@@ -41,8 +42,8 @@
 
       <LunarColumn size="w-full sm:w-1/2">
         <LunarCard>
-          <h4 class="text-indigo-lightest font-normal py-4" slot="header">
-            <div class="bg-indigo shadow-lg py-2 px-2 rounded-full inline-block mr-2">
+          <h4 class="card-header" slot="header">
+            <div class="card-header-icon">
               <FontAwesomeIcon style="width: 1.2em" :icon="accountsIcon" />
             </div>
             Your Accounts
