@@ -1,5 +1,6 @@
 <template>
   <div class="bg-indigo-darkest">
+    <div class="h-1 bg-gradient-indigo-lighter"></div>
     <header class="container mx-auto px-4">
       <div class="flex items-center sm:justify-between py-4">
 

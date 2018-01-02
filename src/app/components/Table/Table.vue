@@ -21,7 +21,7 @@
              :aria-colcount="columns.length"
              :aria-rowcount="rows.length">
 
-        <thead class="bg-indigo-darker">
+        <thead class="border-t border-b border-indigo-darker">
           <tr class="h-8" role="row">
             <th class="lunar-table__checkbox-container" v-if="multiSelect">
               <label class="control control--checkbox">
@@ -35,7 +35,7 @@
             <th v-for="column in columns"
                 v-if="column.active"
                 :key="column.value"
-                class="text-left text-indigo uppercase cursor-pointer tracking-wide text-sm px-4 py-4"
+                class="text-left text-indigo hover:text-indigo-lighter uppercase cursor-pointer tracking-wide text-sm px-4 py-4"
                 :class="{ 'head-item--active': sort.by === column.value }"
                 role="columnheader"
                 tabindex="0"
@@ -52,7 +52,7 @@
 
         <tbody v-if="rows.length" class="lunar-table__body">
           <template v-for="row in rows">
-            <tr class="hover:bg-paua"
+            <tr class="hover:bg-indigo-darker"
                 role="row"
                 :key="row.id"
                 @click="selectRow(row)">
