@@ -1,5 +1,4 @@
 import Accounts from '../Accounts'
-import AccountForm from '../AccountForm'
 
 export default [
   {
@@ -10,14 +9,14 @@ export default [
       guest: false,
       needsAuth: true
     }
-  },
-  {
-    path: '/accounts/add',
-    component: AccountForm,
-    name: 'account-form',
-    meta: {
-      guest: false,
-      needsAuth: true
-    }
   }
+  // {
+  //   path: '/accounts/:id',
+  //   component: AccountDetail,
+  //   name: 'account-detail',
+  //   meta: {
+  //     guest: false,
+  //     needsAuth: true
+  //   }
+  // }
 ]
