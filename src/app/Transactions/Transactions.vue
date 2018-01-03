@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 import FontAwesomeIcon from '@fortawesome/vue-fontawesome'
 import { faCreditCard, faPlus } from '@fortawesome/fontawesome-free-solid'
@@ -48,6 +48,7 @@ import { faCreditCard, faPlus } from '@fortawesome/fontawesome-free-solid'
 import { LunarRow, LunarColumn } from '@/app/components/Layout'
 import { LunarCard } from '@/app/components/Presentational'
 import LunarTable from '@/app/components/Table/Table'
+import LunarTransactionsForm from './TransactionsForm'
 
 export default {
   name: 'transactions',
@@ -86,8 +87,13 @@ export default {
   },
 
   methods: {
+    ...mapActions({
+      toggleDrawer: 'drawer/toggle',
+      setDrawer: 'drawer/setComponent'
+    }),
     showForm () {
-
+      this.toggleDrawer()
+      this.setDrawer(LunarTransactionsForm)
     }
   },
 
