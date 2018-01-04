@@ -11,13 +11,23 @@
             </LunarColumn>
             <LunarColumn size="w-full">
               <div class="mb-8">
-                <label for="name" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">* Account Name :</label>
+                <label for="name" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">* Transaction Name :</label>
                 <input name="name"
                        type="text"
                        v-model="form.name"
                        class="appearance-none block w-full bg-indigo-darker text-indigo-lightest rounded py-2 px-4 mb-3" />
                 <div class="mt-2 text-red-light italic text-sm" v-if="errors.name">
                   {{ errors.name }}
+                </div>
+              </div>
+              <div class="mb-8">
+                <label for="desc" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">* Description :</label>
+                <textarea name="desc"
+                       type="text"
+                       v-model.number="form.desc"
+                       class="appearance-none block w-full bg-indigo-darker text-indigo-lightest rounded py-2 px-4 mb-3"></textarea>
+                <div class="mt-2 text-red-light italic text-sm" v-if="errors.balance">
+                  {{ errors.balance }}
                 </div>
               </div>
               <div class="mb-8">
@@ -28,16 +38,6 @@
                        class="appearance-none block w-1/2 bg-indigo-darker text-indigo-lightest rounded py-2 px-4 mb-3" />
                 <div class="mt-2 text-red-light italic text-sm" v-if="errors.account">
                   {{ errors.account }}
-                </div>
-              </div>
-              <div class="mb-8">
-                <label for="desc" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">* Description :</label>
-                <textarea name="desc"
-                       type="text"
-                       v-model.number="form.desc"
-                       class="appearance-none block w-3/4 bg-indigo-darker text-indigo-lightest rounded py-2 px-4 mb-3"></textarea>
-                <div class="mt-2 text-red-light italic text-sm" v-if="errors.balance">
-                  {{ errors.balance }}
                 </div>
               </div>
               <div class="mb-8">
