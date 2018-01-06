@@ -40,7 +40,7 @@
       return {
         pages: [
           { name: 'Dashboard', path: '/', icon: faHome },
-          { name: 'Accounts', path: '/accounts', icon: faUniversity },
+          { name: 'Budgets', path: '/budgets', icon: faUniversity },
           { name: 'Transactions', path: '/transactions', icon: faCreditCard },
           { name: 'Settings', path: '/settings', icon: faCog }
         ]

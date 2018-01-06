@@ -10,4 +10,13 @@ export default [
       needsAuth: true
     }
   }
+  // {
+  //   path: '/accounts/:id',
+  //   component: AccountDetail,
+  //   name: 'account-detail',
+  //   meta: {
+  //     guest: false,
+  //     needsAuth: true
+  //   }
+  // }
 ]

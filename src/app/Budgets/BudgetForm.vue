@@ -5,13 +5,13 @@
           <LunarRow>
             <LunarColumn size="w-full">
               <div class="text-indigo-lightest text-lg">
-                Add Account
+                Add Budget
               </div>
-              <div class="block text-indigo-lighter text-sm mt-2">Basic Account Information</div>
+              <div class="block text-indigo-lighter text-sm mt-2">Basic Budget Information</div>
             </LunarColumn>
             <LunarColumn size="w-full">
               <div class="mb-8">
-                <label for="name" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">* Account Name :</label>
+                <label for="name" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">* Budget Name :</label>
                 <input name="name"
                        type="text"
                        v-model="form.name"
@@ -21,32 +21,30 @@
                 </div>
               </div>
               <div class="mb-8">
-                <label for="number" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">* 4 Digit Number / ID :</label>
-                <input name="number"
-                       type="text"
-                       v-model.number="form.number"
-                       class="appearance-none block w-1/2 bg-indigo-darker text-indigo-lightest rounded py-2 px-4 mb-3" />
-                <div class="mt-2 text-red-light italic text-sm" v-if="errors.number">
-                  {{ errors.number }}
-                </div>
-              </div>
-              <div class="mb-8">
-                <label for="balance" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">* Current Balance :</label>
+                <label for="limit" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">* Limit :</label>
                 <input name="balance"
-                       type="text"
-                       v-model.number="form.balance"
+                       type="number"
+                       v-model.number="form.limit"
                        class="appearance-none block w-1/2 bg-indigo-darker text-indigo-lightest rounded py-2 px-4 mb-3" />
-                <div class="mt-2 text-red-light italic text-sm" v-if="errors.balance">
-                  {{ errors.balance }}
+                <div class="mt-2 text-red-light italic text-sm" v-if="errors.limit">
+                  {{ errors.limit }}
                 </div>
               </div>
               <div>
-                <label for="favorite" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">Set As Favorite :</label>
-                <input name="favorite"
-                       type="checkbox"
-                       v-model="form.favorite" />
-                <div class="mt-2 text-red-light italic text-sm" v-if="errors.favorite">
-                  {{ errors.favorite }}
+                <label for="time" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">* Time Span :</label>
+                <select class="appearance-none block w-1/2 bg-indigo-darker text-indigo-lightest rounded py-2 px-4 mb-3"
+                        name="time"
+                        v-model="form.time">
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="biweekly">Bi-Weekly</option>
+                  <option value="monthly">Monthly</option>
+                  <option value="quarterly">Quarterly</option>
+                  <option value="half">Half Year</option>
+                  <option value="yearly">Yearly</option>
+                </select>
+                <div class="mt-2 text-red-light italic text-sm" v-if="errors.time">
+                  {{ errors.time }}
                 </div>
               </div>
             </LunarColumn>
@@ -74,7 +72,7 @@
   import { simpleValidate } from '@/app/utils'
 
   export default {
-    name: 'lunar-account-form',
+    name: 'lunar-budget-form',
 
     components: {
       LunarRow,
