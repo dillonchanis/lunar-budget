@@ -69,7 +69,6 @@
   import { mapActions } from 'vuex'
   import { LunarRow, LunarColumn } from '@/app/components/Layout'
   import { LunarCard } from '@/app/components/Presentational'
-  import { simpleValidate } from '@/app/utils'
 
   export default {
     name: 'lunar-budget-form',

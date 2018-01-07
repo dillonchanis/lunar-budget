@@ -1,4 +1,5 @@
 import Budgets from '../Budgets'
+import BudgetDetail from '../BudgetDetail'
 
 export default [
   {
@@ -9,14 +10,14 @@ export default [
       guest: false,
       needsAuth: true
     }
+  },
+  {
+    path: '/budgets/:id',
+    component: BudgetDetail,
+    name: 'budget-detail',
+    meta: {
+      guest: false,
+      needsAuth: true
+    }
   }
-  // {
-  //   path: '/accounts/:id',
-  //   component: AccountDetail,
-  //   name: 'account-detail',
-  //   meta: {
-  //     guest: false,
-  //     needsAuth: true
-  //   }
-  // }
 ]

@@ -10,7 +10,8 @@ export default {
       time: {
         start: today,
         end: new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7)
-      }
+      },
+      transactions: []
     },
     {
       id: 2,
@@ -20,7 +21,8 @@ export default {
       time: {
         start: today,
         end: new Date(today.getFullYear(), today.getMonth() + 3, today.getDate())
-      }
+      },
+      transactions: []
     },
     {
       id: 3,
@@ -30,7 +32,8 @@ export default {
       time: {
         start: today,
         end: new Date(today.getFullYear() + 1, today.getMonth(), today.getDate())
-      }
+      },
+      transactions: []
     }
   ]
 }

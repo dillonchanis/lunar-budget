@@ -17,24 +17,26 @@
 
     <LunarRow v-if="budgets.length">
       <LunarColumn size="w-full sm:w-1/4" v-for="budget in budgets" :key="budget.id">
-        <LunarCard className="elevation">
-          <div class="p-4">
-            <h4 class="text-indigo-lightest font-hairline mb-2">{{ budget.name }}</h4>
+        <router-link class="no-underline" :to="'/budgets/' + budget.id" :title="budget.name">
+          <LunarCard className="elevation">
+            <div class="p-4">
+              <h4 class="text-indigo-lightest font-hairline mb-2">{{ budget.name }}</h4>
 
-            <div class="mt-4 mb-4">
-              <LunarProgress :fill="progress(budget.spent, budget.amount)" />
-            </div>
+              <div class="mt-4 mb-4">
+                <LunarProgress :fill="progress(budget.spent, budget.amount)" />
+              </div>
 
-            <div class="bg-indigo-darker p-2 text-indigo-lightest text-left">
-              <p>
-                ${{ budget.spent }} / ${{ budget.amount }}
-              </p>
-              <p class="text-indigo-lighter text-sm opacity-50">
-                {{ daysRemaining(budget.time.start, budget.time.end) }} days remain
-              </p>
+              <div class="bg-indigo-darker p-2 text-indigo-lightest text-left">
+                <p>
+                  ${{ budget.spent }} / ${{ budget.amount }}
+                </p>
+                <p class="text-indigo-lighter text-sm opacity-50">
+                  {{ daysRemaining(budget.time.start, budget.time.end) }} days remain
+                </p>
+              </div>
             </div>
-          </div>
-        </LunarCard>
+          </LunarCard>
+        </router-link>
       </LunarColumn>
     </LunarRow>
     <LunarRow v-else>
