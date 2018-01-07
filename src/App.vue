@@ -59,6 +59,7 @@ body,
 #app {
   height: 100%;
   width: 100%;
+  line-height: 1.45;
   overflow-x: hidden;
 }
 </style>
