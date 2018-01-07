@@ -1,5 +1,15 @@
 $drawerWidth: 500px;
 
+.elevation {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform, box-shadow;
+
+  &:hover {
+    box-shadow: 0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08);
+    transform: translateY(-5px) translateZ(0);
+  }
+}
+
 .slide-enter-active {
   animation: slide-in 500ms ease-out;
 }
