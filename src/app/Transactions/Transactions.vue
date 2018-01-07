@@ -4,7 +4,7 @@
       <LunarColumn size="w-full">
         <div class="flex items-center">
           <h2 class="text-indigo-lightest text-2xl font-hairline">
-            Accounts
+            Transactions
           </h2>
 
           <button class="ml-4 btn-primary py-2 px-2 text-xs" @click="showForm">

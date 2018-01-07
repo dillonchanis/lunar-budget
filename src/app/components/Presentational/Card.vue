@@ -17,7 +17,7 @@
 
     props: {
       className: {
-        type: [String, Array],
+        type: [String, Array]
       }
     }
   }

@@ -1,5 +1,5 @@
 <template>
-  <div class="shadow-md sm:bg-indigo-darker">
+  <div class="shadow-md bg-indigo-darker">
     <div class="container mx-auto px-4">
       <div class="sm:flex">
         <div v-for="page in pages" :key="page.name" class="flex mr-6">
@@ -7,7 +7,7 @@
                       :class="[
                         currentUrl === page.path
                           ? 'border-white text-white opacity-100'
-                          : 'border-transparent hover:border-indigo-lighter text-white sm:text-indigo-light hover:text-indigo-lighter'
+                          : 'border-transparent hover:border-indigo-lighter text-indigo-lightest sm:text-indigo-light hover:text-indigo-lighter'
                       ]"
                       :to="page.path">
             <FontAwesomeIcon class="mr-1" :icon="page.icon" />
