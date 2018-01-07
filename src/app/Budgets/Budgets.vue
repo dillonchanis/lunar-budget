@@ -18,15 +18,20 @@
     <LunarRow v-if="budgets.length">
       <LunarColumn size="w-full sm:w-1/4" v-for="budget in budgets" :key="budget.id">
         <LunarCard className="elevation">
-          <div class="p-4 text-center">
+          <div class="p-4">
             <h4 class="text-indigo-lightest font-hairline mb-2">{{ budget.name }}</h4>
 
             <div class="mt-4 mb-4">
               <LunarProgress :fill="progress(budget.spent, budget.amount)" />
             </div>
 
-            <div class="bg-indigo-darker p-2 text-indigo-lightest">
-              ${{ budget.amount }}
+            <div class="bg-indigo-darker p-2 text-indigo-lightest text-left">
+              <p>
+                ${{ budget.spent }} / ${{ budget.amount }}
+              </p>
+              <p class="text-indigo-lighter text-sm opacity-50">
+                {{ daysRemaining(budget.time.start, budget.time.end) }} days remain
+              </p>
             </div>
           </div>
         </LunarCard>
@@ -47,6 +52,7 @@
   import { faPlus, faSuitcase } from '@fortawesome/fontawesome-free-solid'
   import { mapActions, mapGetters } from 'vuex'
 
+  import { dateDiff } from '@/app/utils'
   import LunarBudgetForm from './BudgetForm'
   import { LunarRow, LunarColumn } from '@/app/components/Layout'
   import { LunarCard, LunarProgress } from '@/app/components/Presentational'
@@ -88,6 +94,7 @@
         setDrawer: 'drawer/setComponent'
       }),
       progress: (spent, total) => ((spent / total) * 100),
+      daysRemaining: (start, end) => dateDiff(start, end),
       showForm () {
         this.toggleDrawer()
         this.setDrawer(LunarBudgetForm)

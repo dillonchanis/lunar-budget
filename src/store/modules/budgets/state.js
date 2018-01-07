@@ -6,7 +6,7 @@ export default {
       id: 1,
       name: 'Weekly Budget',
       amount: 300.00,
-      spent: 48.21,
+      spent: 198.21,
       time: {
         start: today,
         end: new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7)

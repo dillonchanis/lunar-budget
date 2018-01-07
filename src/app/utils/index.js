@@ -13,6 +13,14 @@ export const truncate = (text, length = 30, clamp = '...') => {
   return tcText + clamp
 }
 
+export const dateDiff = (a, b) => {
+  const msPerDay = 1000 * 60 * 60 * 24
+  const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate())
+  const utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate())
+
+  return Math.floor((utc2 - utc1) / msPerDay)
+}
+
 const getErrors = ({ errorMsg = `This field is required.` }) => errorMsg
 
 const validate = (fn, data) => {
