@@ -15,24 +15,29 @@
       </LunarColumn>
     </LunarRow>
 
-    <LunarRow v-if="accounts.length">
-      <LunarColumn size="w-full">
-        <LunarCard>
-          <h4 class="card-header" slot="header">
-            <div class="card-header-icon">
-              <FontAwesomeIcon style="width: 1.2em" :icon="faSuitcase" />
-            </div>
-            Your Budgets
-          </h4>
+    <LunarRow v-if="budgets.length">
+      <LunarColumn size="w-full sm:w-1/4" v-for="budget in budgets" :key="budget.id">
+        <LunarCard className="elevation">
+          <div class="p-4 text-center">
+            <h4 class="text-indigo-lightest font-hairline mb-2">{{ budget.name }}</h4>
 
-          <LunarAccountList :accounts="accounts" />
+            <div class="mt-4 mb-4">
+              <LunarProgress :fill="progress(budget.spent, budget.amount)" />
+            </div>
+
+            <div class="bg-indigo-darker p-2 text-indigo-lightest">
+              ${{ budget.amount }}
+            </div>
+          </div>
         </LunarCard>
       </LunarColumn>
     </LunarRow>
     <LunarRow v-else>
-      <p class="text-indigo-lightest">
-        It looks like you have no budgets set!
-      </p>
+      <LunarColumn size="w-full">
+        <p class="text-indigo-lightest">
+          It looks like you have no budgets set!
+        </p>
+      </LunarColumn>
     </LunarRow>
   </div>
 </template>
@@ -43,30 +48,29 @@
   import { mapActions, mapGetters } from 'vuex'
 
   import LunarBudgetForm from './BudgetForm'
-  import { LunarAccountList } from '@/app/components/Lists'
   import { LunarRow, LunarColumn } from '@/app/components/Layout'
-  import { LunarCard } from '@/app/components/Presentational'
+  import { LunarCard, LunarProgress } from '@/app/components/Presentational'
 
   export default {
     name: 'lunar-budgets',
 
     components: {
       FontAwesomeIcon,
-      LunarAccountList,
       LunarRow,
       LunarColumn,
-      LunarCard
+      LunarCard,
+      LunarProgress
     },
 
     data () {
       return {
-        accounts: []
+        budgets: []
       }
     },
 
     computed: {
       ...mapGetters({
-        getAccounts: 'accounts/getAccounts'
+        getBudgets: 'budgets/getBudgets'
       }),
 
       faPlus () {
@@ -83,6 +87,7 @@
         toggleDrawer: 'drawer/toggle',
         setDrawer: 'drawer/setComponent'
       }),
+      progress: (spent, total) => ((spent / total) * 100),
       showForm () {
         this.toggleDrawer()
         this.setDrawer(LunarBudgetForm)
@@ -90,7 +95,7 @@
     },
 
     mounted () {
-      this.accounts = this.getAccounts
+      this.budgets = this.getBudgets
     }
   }
 </script>
