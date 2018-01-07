@@ -21,13 +21,13 @@
                 </div>
               </div>
               <div class="mb-8">
-                <label for="limit" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">* Limit :</label>
+                <label for="amount" class="block uppercase tracking-wide text-indigo-lighter text-xs font-bold mb-2">* Amount :</label>
                 <input name="balance"
                        type="number"
-                       v-model.number="form.limit"
+                       v-model.number="form.amount"
                        class="appearance-none block w-1/2 bg-indigo-darker text-indigo-lightest rounded py-2 px-4 mb-3" />
-                <div class="mt-2 text-red-light italic text-sm" v-if="errors.limit">
-                  {{ errors.limit }}
+                <div class="mt-2 text-red-light italic text-sm" v-if="errors.amount">
+                  {{ errors.amount }}
                 </div>
               </div>
               <div>
@@ -113,18 +113,9 @@
         this.closeDrawer()
       },
       submit () {
-        const validate = simpleValidate(({ value, len }) => value && String(value).length >= len)
-        this.errors = Object.assign(
-          {},
-          { name: validate({ len: 5, value: this.form.name, errorMsg: 'A minimum of 5 characters is required.' }) },
-          { number: validate({ len: 4, value: this.form.number, errorMsg: 'A minimum of 4 characters is required.' }) },
-          { balance: validate({ len: 1, value: this.form.balance }) }
-        )
-
-        if (this.formIsValid) {
-          this.add(this.form)
-          this.clear()
-        }
+        // add validation
+        this.add(this.form)
+        this.clear()
       }
     }
   }
